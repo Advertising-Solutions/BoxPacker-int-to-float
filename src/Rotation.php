@@ -11,7 +11,7 @@ namespace DVDoug\BoxPacker;
 /*
  * Rotation permutations
  */
-enum Rotation: float
+enum Rotation: int
 {
     /* Must be placed in it's defined orientation only */
     case Never = 1;
