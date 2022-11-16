@@ -21,22 +21,22 @@ class TestItem implements Item, JsonSerializable
     private $description;
 
     /**
-     * @var int
+     * @var float
      */
     private $width;
 
     /**
-     * @var int
+     * @var float
      */
     private $length;
 
     /**
-     * @var int
+     * @var float
      */
     private $depth;
 
     /**
-     * @var int
+     * @var float
      */
     private $weight;
 
@@ -64,10 +64,10 @@ class TestItem implements Item, JsonSerializable
      */
     public function __construct(
         string $description,
-        int $width,
-        int $length,
-        int $depth,
-        int $weight,
+        float $width,
+        float $length,
+        float $depth,
+        float $weight,
         Rotation $allowedRotation
     ) {
         $this->description = $description;
@@ -89,22 +89,22 @@ class TestItem implements Item, JsonSerializable
         return $this->description;
     }
 
-    public function getWidth(): int
+    public function getWidth(): float
     {
         return $this->width;
     }
 
-    public function getLength(): int
+    public function getLength(): float
     {
         return $this->length;
     }
 
-    public function getDepth(): int
+    public function getDepth(): float
     {
         return $this->depth;
     }
 
-    public function getWeight(): int
+    public function getWeight(): float
     {
         return $this->weight;
     }

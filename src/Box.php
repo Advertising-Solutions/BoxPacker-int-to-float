@@ -21,40 +21,40 @@ interface Box
     /**
      * Outer width in mm.
      */
-    public function getOuterWidth(): int;
+    public function getOuterWidth(): float;
 
     /**
      * Outer length in mm.
      */
-    public function getOuterLength(): int;
+    public function getOuterLength(): float;
 
     /**
      * Outer depth in mm.
      */
-    public function getOuterDepth(): int;
+    public function getOuterDepth(): float;
 
     /**
      * Empty weight in g.
      */
-    public function getEmptyWeight(): int;
+    public function getEmptyWeight(): float;
 
     /**
      * Inner width in mm.
      */
-    public function getInnerWidth(): int;
+    public function getInnerWidth(): float;
 
     /**
      * Inner length in mm.
      */
-    public function getInnerLength(): int;
+    public function getInnerLength(): float;
 
     /**
      * Inner depth in mm.
      */
-    public function getInnerDepth(): int;
+    public function getInnerDepth(): float;
 
     /**
      * Max weight the packaging can hold in g.
      */
-    public function getMaxWeight(): int;
+    public function getMaxWeight(): float;
 }

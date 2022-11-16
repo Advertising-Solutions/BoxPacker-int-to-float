@@ -10,7 +10,7 @@ namespace DVDoug\BoxPacker;
 
 class DefaultPackedBoxSorter implements PackedBoxSorter
 {
-    public function compare(PackedBox $boxA, PackedBox $boxB): int
+    public function compare(PackedBox $boxA, PackedBox $boxB): float
     {
         $choice = $boxB->getItems()->count() <=> $boxA->getItems()->count();
 

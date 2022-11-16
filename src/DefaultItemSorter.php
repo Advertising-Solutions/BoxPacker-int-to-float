@@ -10,7 +10,7 @@ namespace DVDoug\BoxPacker;
 
 class DefaultItemSorter implements ItemSorter
 {
-    public function compare(Item $itemA, Item $itemB): int
+    public function compare(Item $itemA, Item $itemB): float
     {
         $volumeDecider = $itemB->getWidth() * $itemB->getLength() * $itemB->getDepth() <=> $itemA->getWidth() * $itemA->getLength() * $itemA->getDepth();
         if ($volumeDecider !== 0) {

@@ -128,13 +128,13 @@ class PublishedTestCasesTest extends TestCase
             $boxDimensions = explode(' ', trim(fgets($handle)));
             $box = new TestBox(
                 "Container {$problemId}",
-                (int) $boxDimensions[0],
-                (int) $boxDimensions[1],
-                (int) $boxDimensions[2],
+                (float) $boxDimensions[0],
+                (float) $boxDimensions[1],
+                (float) $boxDimensions[2],
                 1,
-                (int) $boxDimensions[0],
-                (int) $boxDimensions[1],
-                (int) $boxDimensions[2],
+                (float) $boxDimensions[0],
+                (float) $boxDimensions[1],
+                (float) $boxDimensions[2],
                 1
             );
             $itemTypeCount = trim(fgets($handle));
@@ -144,14 +144,14 @@ class PublishedTestCasesTest extends TestCase
                 $itemDimensions = explode(' ', trim(fgets($handle)));
                 $item = new THPackTestItem(
                     "Item {$itemDimensions[0]}",
-                    (int) $itemDimensions[1],
+                    (float) $itemDimensions[1],
                     (bool) $itemDimensions[2],
-                    (int) $itemDimensions[3],
+                    (float) $itemDimensions[3],
                     (bool) $itemDimensions[4],
-                    (int) $itemDimensions[5],
+                    (float) $itemDimensions[5],
                     (bool) $itemDimensions[6]
                 );
-                $items->insert($item, (int) $itemDimensions[7]);
+                $items->insert($item, (float) $itemDimensions[7]);
             }
             $data[$problemId] = [$problemId, $box, $items, $itemTypeCount];
         }

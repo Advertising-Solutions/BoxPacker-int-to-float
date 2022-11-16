@@ -24,7 +24,7 @@ class OrientatedItemSorter
     private LoggerInterface $logger;
 
     /**
-     * @var array<string, int>
+     * @var array<string, float>
      */
     protected static array $lookaheadCache = [];
 
@@ -32,25 +32,25 @@ class OrientatedItemSorter
 
     private bool $singlePassMode;
 
-    private int $widthLeft;
+    private float $widthLeft;
 
-    private int $lengthLeft;
+    private float $lengthLeft;
 
-    private int $depthLeft;
+    private float $depthLeft;
 
-    private int $rowLength;
+    private float $rowLength;
 
-    private int $x;
+    private float $x;
 
-    private int $y;
+    private float $y;
 
-    private int $z;
+    private float $z;
 
     private ItemList $nextItems;
 
     private PackedItemList $prevPackedItemList;
 
-    public function __construct(OrientatedItemFactory $factory, bool $singlePassMode, int $widthLeft, int $lengthLeft, int $depthLeft, ItemList $nextItems, int $rowLength, int $x, int $y, int $z, PackedItemList $prevPackedItemList, LoggerInterface $logger)
+    public function __construct(OrientatedItemFactory $factory, bool $singlePassMode, float $widthLeft, float $lengthLeft, float $depthLeft, ItemList $nextItems, float $rowLength, float $x, float $y, float $z, PackedItemList $prevPackedItemList, LoggerInterface $logger)
     {
         $this->orientatedItemFactory = $factory;
         $this->singlePassMode = $singlePassMode;
@@ -66,7 +66,7 @@ class OrientatedItemSorter
         $this->logger = $logger;
     }
 
-    public function __invoke(OrientatedItem $a, OrientatedItem $b): int
+    public function __invoke(OrientatedItem $a, OrientatedItem $b): float
     {
         // Prefer exact fits in width/length/depth order
         $orientationAWidthLeft = $this->widthLeft - $a->getWidth();
@@ -103,7 +103,7 @@ class OrientatedItemSorter
         return $orientationAMinGap <=> $orientationBMinGap ?: $a->getSurfaceFootprint() <=> $b->getSurfaceFootprint();
     }
 
-    private function lookAheadDecider(OrientatedItem $a, OrientatedItem $b, int $orientationAWidthLeft, int $orientationBWidthLeft): int
+    private function lookAheadDecider(OrientatedItem $a, OrientatedItem $b, float $orientationAWidthLeft, float $orientationBWidthLeft): float
     {
         if ($this->nextItems->count() === 0) {
             return 0;
@@ -133,7 +133,7 @@ class OrientatedItemSorter
      */
     protected function calculateAdditionalItemsPackedWithThisOrientation(
         OrientatedItem $prevItem
-    ): int {
+    ): float {
         if ($this->singlePassMode) {
             return 0;
         }
@@ -191,7 +191,7 @@ class OrientatedItemSorter
         return static::$lookaheadCache[$cacheKey];
     }
 
-    private function exactFitDecider(int $dimensionALeft, int $dimensionBLeft): int
+    private function exactFitDecider(float $dimensionALeft, float $dimensionBLeft): float
     {
         if ($dimensionALeft === 0 && $dimensionBLeft > 0) {
             return -1;

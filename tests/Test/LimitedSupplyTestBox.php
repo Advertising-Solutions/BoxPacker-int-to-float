@@ -13,17 +13,17 @@ use DVDoug\BoxPacker\LimitedSupplyBox;
 class LimitedSupplyTestBox extends TestBox implements LimitedSupplyBox
 {
     /**
-     * @var int
+     * @var float
      */
     private $quantity;
 
-    public function __construct(string $reference, int $outerWidth, int $outerLength, int $outerDepth, int $emptyWeight, int $innerWidth, int $innerLength, int $innerDepth, int $maxWeight, int $quantity)
+    public function __construct(string $reference, float $outerWidth, float $outerLength, float $outerDepth, float $emptyWeight, float $innerWidth, float $innerLength, float $innerDepth, float $maxWeight, float $quantity)
     {
         parent::__construct($reference, $outerWidth, $outerLength, $outerDepth, $emptyWeight, $innerWidth, $innerLength, $innerDepth, $maxWeight);
         $this->quantity = $quantity;
     }
 
-    public function getQuantityAvailable(): int
+    public function getQuantityAvailable(): float
     {
         return $this->quantity;
     }

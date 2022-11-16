@@ -56,13 +56,13 @@ class OrientatedItemFactory implements LoggerAwareInterface
         Item $item,
         ?OrientatedItem $prevItem,
         ItemList $nextItems,
-        int $widthLeft,
-        int $lengthLeft,
-        int $depthLeft,
-        int $rowLength,
-        int $x,
-        int $y,
-        int $z,
+        float $widthLeft,
+        float $lengthLeft,
+        float $depthLeft,
+        float $rowLength,
+        float $x,
+        float $y,
+        float $z,
         PackedItemList $prevPackedItemList,
         bool $considerStability
     ): ?OrientatedItem {
@@ -101,12 +101,12 @@ class OrientatedItemFactory implements LoggerAwareInterface
     public function getPossibleOrientations(
         Item $item,
         ?OrientatedItem $prevItem,
-        int $widthLeft,
-        int $lengthLeft,
-        int $depthLeft,
-        int $x,
-        int $y,
-        int $z,
+        float $widthLeft,
+        float $lengthLeft,
+        float $depthLeft,
+        float $x,
+        float $y,
+        float $z,
         PackedItemList $prevPackedItemList
     ): array {
         $permutations = $this->generatePermutations($item, $prevItem);
@@ -210,7 +210,7 @@ class OrientatedItemFactory implements LoggerAwareInterface
     }
 
     /**
-     * @return array<array<int>>
+     * @return array<array<float>>
      */
     private function generatePermutations(Item $item, ?OrientatedItem $prevItem): array
     {

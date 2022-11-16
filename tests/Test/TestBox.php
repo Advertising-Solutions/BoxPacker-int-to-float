@@ -19,42 +19,42 @@ class TestBox implements Box, JsonSerializable
     private $reference;
 
     /**
-     * @var int
+     * @var float
      */
     private $outerWidth;
 
     /**
-     * @var int
+     * @var float
      */
     private $outerLength;
 
     /**
-     * @var int
+     * @var float
      */
     private $outerDepth;
 
     /**
-     * @var int
+     * @var float
      */
     private $emptyWeight;
 
     /**
-     * @var int
+     * @var float
      */
     private $innerWidth;
 
     /**
-     * @var int
+     * @var float
      */
     private $innerLength;
 
     /**
-     * @var int
+     * @var float
      */
     private $innerDepth;
 
     /**
-     * @var int
+     * @var float
      */
     private $maxWeight;
 
@@ -63,14 +63,14 @@ class TestBox implements Box, JsonSerializable
      */
     public function __construct(
         string $reference,
-        int $outerWidth,
-        int $outerLength,
-        int $outerDepth,
-        int $emptyWeight,
-        int $innerWidth,
-        int $innerLength,
-        int $innerDepth,
-        int $maxWeight
+        float $outerWidth,
+        float $outerLength,
+        float $outerDepth,
+        float $emptyWeight,
+        float $innerWidth,
+        float $innerLength,
+        float $innerDepth,
+        float $maxWeight
     ) {
         $this->reference = $reference;
         $this->outerWidth = $outerWidth;
@@ -88,42 +88,42 @@ class TestBox implements Box, JsonSerializable
         return $this->reference;
     }
 
-    public function getOuterWidth(): int
+    public function getOuterWidth(): float
     {
         return $this->outerWidth;
     }
 
-    public function getOuterLength(): int
+    public function getOuterLength(): float
     {
         return $this->outerLength;
     }
 
-    public function getOuterDepth(): int
+    public function getOuterDepth(): float
     {
         return $this->outerDepth;
     }
 
-    public function getEmptyWeight(): int
+    public function getEmptyWeight(): float
     {
         return $this->emptyWeight;
     }
 
-    public function getInnerWidth(): int
+    public function getInnerWidth(): float
     {
         return $this->innerWidth;
     }
 
-    public function getInnerLength(): int
+    public function getInnerLength(): float
     {
         return $this->innerLength;
     }
 
-    public function getInnerDepth(): int
+    public function getInnerDepth(): float
     {
         return $this->innerDepth;
     }
 
-    public function getMaxWeight(): int
+    public function getMaxWeight(): float
     {
         return $this->maxWeight;
     }

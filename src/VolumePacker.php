@@ -129,7 +129,7 @@ class VolumePacker implements LoggerAwareInterface
      *
      * @return PackedBox packed box
      */
-    private function packRotation(int $boxWidth, int $boxLength): PackedBox
+    private function packRotation(float $boxWidth, float $boxLength): PackedBox
     {
         $this->logger->debug("[EVALUATING ROTATION] {$this->box->getReference()}", ['width' => $boxWidth, 'length' => $boxLength]);
 
@@ -198,7 +198,7 @@ class VolumePacker implements LoggerAwareInterface
      *
      * @return PackedLayer[]
      */
-    private function correctLayerRotation(array $oldLayers, int $boxWidth): array
+    private function correctLayerRotation(array $oldLayers, float $boxWidth): array
     {
         if ($this->box->getInnerWidth() === $boxWidth) {
             return $oldLayers;
@@ -238,7 +238,7 @@ class VolumePacker implements LoggerAwareInterface
      *
      * @param PackedLayer[] $layers
      */
-    private static function getCurrentPackedDepth(array $layers): int
+    private static function getCurrentPackedDepth(array $layers): float
     {
         $depth = 0;
         foreach ($layers as $layer) {

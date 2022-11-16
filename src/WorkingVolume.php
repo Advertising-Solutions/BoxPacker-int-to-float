@@ -16,19 +16,19 @@ use JsonSerializable;
  */
 class WorkingVolume implements Box, JsonSerializable
 {
-    private int $width;
+    private float $width;
 
-    private int $length;
+    private float $length;
 
-    private int $depth;
+    private float $depth;
 
-    private int $maxWeight;
+    private float $maxWeight;
 
     public function __construct(
-        int $width,
-        int $length,
-        int $depth,
-        int $maxWeight
+        float $width,
+        float $length,
+        float $depth,
+        float $maxWeight
     ) {
         $this->width = $width;
         $this->length = $length;
@@ -41,42 +41,42 @@ class WorkingVolume implements Box, JsonSerializable
         return "Working Volume {$this->width}x{$this->length}x{$this->depth}";
     }
 
-    public function getOuterWidth(): int
+    public function getOuterWidth(): float
     {
         return $this->width;
     }
 
-    public function getOuterLength(): int
+    public function getOuterLength(): float
     {
         return $this->length;
     }
 
-    public function getOuterDepth(): int
+    public function getOuterDepth(): float
     {
         return $this->depth;
     }
 
-    public function getEmptyWeight(): int
+    public function getEmptyWeight(): float
     {
         return 0;
     }
 
-    public function getInnerWidth(): int
+    public function getInnerWidth(): float
     {
         return $this->width;
     }
 
-    public function getInnerLength(): int
+    public function getInnerLength(): float
     {
         return $this->length;
     }
 
-    public function getInnerDepth(): int
+    public function getInnerDepth(): float
     {
         return $this->depth;
     }
 
-    public function getMaxWeight(): int
+    public function getMaxWeight(): float
     {
         return $this->maxWeight;
     }

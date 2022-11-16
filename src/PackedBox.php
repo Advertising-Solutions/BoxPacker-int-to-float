@@ -25,7 +25,7 @@ class PackedBox implements JsonSerializable
 
     protected PackedItemList $items;
 
-    protected int $itemWeight = 0;
+    protected float $itemWeight = 0;
 
     protected float $volumeUtilisation;
 
@@ -48,9 +48,9 @@ class PackedBox implements JsonSerializable
     /**
      * Get packed weight.
      *
-     * @return int weight in grams
+     * @return float weight in grams
      */
-    public function getWeight(): int
+    public function getWeight(): float
     {
         return $this->box->getEmptyWeight() + $this->getItemWeight();
     }
@@ -58,9 +58,9 @@ class PackedBox implements JsonSerializable
     /**
      * Get packed weight of the items only.
      *
-     * @return int weight in grams
+     * @return float weight in grams
      */
-    public function getItemWeight(): int
+    public function getItemWeight(): float
     {
         return $this->itemWeight;
     }
@@ -68,7 +68,7 @@ class PackedBox implements JsonSerializable
     /**
      * Get remaining width inside box for another item.
      */
-    public function getRemainingWidth(): int
+    public function getRemainingWidth(): float
     {
         return $this->box->getInnerWidth() - $this->getUsedWidth();
     }
@@ -76,7 +76,7 @@ class PackedBox implements JsonSerializable
     /**
      * Get remaining length inside box for another item.
      */
-    public function getRemainingLength(): int
+    public function getRemainingLength(): float
     {
         return $this->box->getInnerLength() - $this->getUsedLength();
     }
@@ -84,7 +84,7 @@ class PackedBox implements JsonSerializable
     /**
      * Get remaining depth inside box for another item.
      */
-    public function getRemainingDepth(): int
+    public function getRemainingDepth(): float
     {
         return $this->box->getInnerDepth() - $this->getUsedDepth();
     }
@@ -92,7 +92,7 @@ class PackedBox implements JsonSerializable
     /**
      * Used width inside box for packing items.
      */
-    public function getUsedWidth(): int
+    public function getUsedWidth(): float
     {
         $maxWidth = 0;
 
@@ -106,7 +106,7 @@ class PackedBox implements JsonSerializable
     /**
      * Used length inside box for packing items.
      */
-    public function getUsedLength(): int
+    public function getUsedLength(): float
     {
         $maxLength = 0;
 
@@ -120,7 +120,7 @@ class PackedBox implements JsonSerializable
     /**
      * Used depth inside box for packing items.
      */
-    public function getUsedDepth(): int
+    public function getUsedDepth(): float
     {
         $maxDepth = 0;
 
@@ -134,12 +134,12 @@ class PackedBox implements JsonSerializable
     /**
      * Get remaining weight inside box for another item.
      */
-    public function getRemainingWeight(): int
+    public function getRemainingWeight(): float
     {
         return $this->box->getMaxWeight() - $this->getWeight();
     }
 
-    public function getInnerVolume(): int
+    public function getInnerVolume(): float
     {
         return $this->box->getInnerWidth() * $this->box->getInnerLength() * $this->box->getInnerDepth();
     }
@@ -147,7 +147,7 @@ class PackedBox implements JsonSerializable
     /**
      * Get used volume of the packed box.
      */
-    public function getUsedVolume(): int
+    public function getUsedVolume(): float
     {
         return $this->items->getVolume();
     }
@@ -155,7 +155,7 @@ class PackedBox implements JsonSerializable
     /**
      * Get unused volume of the packed box.
      */
-    public function getUnusedVolume(): int
+    public function getUnusedVolume(): float
     {
         return $this->getInnerVolume() - $this->getUsedVolume();
     }

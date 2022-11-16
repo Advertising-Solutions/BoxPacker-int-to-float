@@ -56,7 +56,7 @@ class PackedBoxList implements IteratorAggregate, Countable, JsonSerializable
     /**
      * Number of items in list.
      */
-    public function count(): int
+    public function count(): float
     {
         return count($this->list);
     }

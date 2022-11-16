@@ -18,7 +18,7 @@ class PackedBoxByReferenceSorter implements PackedBoxSorter
      */
     public static $reference = '';
 
-    public function compare(PackedBox $boxA, PackedBox $boxB): int
+    public function compare(PackedBox $boxA, PackedBox $boxB): float
     {
         if ($boxA->getBox()->getReference() === static::$reference) {
             return -1;

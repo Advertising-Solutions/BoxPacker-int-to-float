@@ -19,19 +19,19 @@ use const PHP_INT_MAX;
  */
 class PackedLayer
 {
-    private int $startX = PHP_INT_MAX;
+    private float $startX = PHP_INT_MAX;
 
-    private int $endX = 0;
+    private float $endX = 0;
 
-    private int $startY = PHP_INT_MAX;
+    private float $startY = PHP_INT_MAX;
 
-    private int $endY = 0;
+    private float $endY = 0;
 
-    private int $startZ = PHP_INT_MAX;
+    private float $startZ = PHP_INT_MAX;
 
-    private int $endZ = 0;
+    private float $endZ = 0;
 
-    private int $weight = 0;
+    private float $weight = 0;
 
     /**
      * @var PackedItem[]
@@ -66,59 +66,59 @@ class PackedLayer
     /**
      * Calculate footprint area of this layer.
      *
-     * @return int mm^2
+     * @return float mm^2
      */
-    public function getFootprint(): int
+    public function getFootprint(): float
     {
         return $this->getWidth() * $this->getLength();
     }
 
-    public function getStartX(): int
+    public function getStartX(): float
     {
         return $this->startX;
     }
 
-    public function getEndX(): int
+    public function getEndX(): float
     {
         return $this->endX;
     }
 
-    public function getWidth(): int
+    public function getWidth(): float
     {
         return $this->endX ? $this->endX - $this->startX : 0;
     }
 
-    public function getStartY(): int
+    public function getStartY(): float
     {
         return $this->startY;
     }
 
-    public function getEndY(): int
+    public function getEndY(): float
     {
         return $this->endY;
     }
 
-    public function getLength(): int
+    public function getLength(): float
     {
         return $this->endY ? $this->endY - $this->startY : 0;
     }
 
-    public function getStartZ(): int
+    public function getStartZ(): float
     {
         return $this->startZ;
     }
 
-    public function getEndZ(): int
+    public function getEndZ(): float
     {
         return $this->endZ;
     }
 
-    public function getDepth(): int
+    public function getDepth(): float
     {
         return $this->endZ ? $this->endZ - $this->startZ : 0;
     }
 
-    public function getWeight(): int
+    public function getWeight(): float
     {
         return $this->weight;
     }

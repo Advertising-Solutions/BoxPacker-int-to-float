@@ -15,21 +15,21 @@ use JsonSerializable;
  */
 class PackedItem implements JsonSerializable
 {
-    protected int $x;
+    protected float $x;
 
-    protected int $y;
+    protected float $y;
 
-    protected int $z;
+    protected float $z;
 
     protected Item $item;
 
-    protected int $width;
+    protected float $width;
 
-    protected int $length;
+    protected float $length;
 
-    protected int $depth;
+    protected float $depth;
 
-    public function __construct(Item $item, int $x, int $y, int $z, int $width, int $length, int $depth)
+    public function __construct(Item $item, float $x, float $y, float $z, float $width, float $length, float $depth)
     {
         $this->item = $item;
         $this->x = $x;
@@ -40,17 +40,17 @@ class PackedItem implements JsonSerializable
         $this->depth = $depth;
     }
 
-    public function getX(): int
+    public function getX(): float
     {
         return $this->x;
     }
 
-    public function getY(): int
+    public function getY(): float
     {
         return $this->y;
     }
 
-    public function getZ(): int
+    public function getZ(): float
     {
         return $this->z;
     }
@@ -60,27 +60,27 @@ class PackedItem implements JsonSerializable
         return $this->item;
     }
 
-    public function getWidth(): int
+    public function getWidth(): float
     {
         return $this->width;
     }
 
-    public function getLength(): int
+    public function getLength(): float
     {
         return $this->length;
     }
 
-    public function getDepth(): int
+    public function getDepth(): float
     {
         return $this->depth;
     }
 
-    public function getVolume(): int
+    public function getVolume(): float
     {
         return $this->width * $this->length * $this->depth;
     }
 
-    public static function fromOrientatedItem(OrientatedItem $orientatedItem, int $x, int $y, int $z): self
+    public static function fromOrientatedItem(OrientatedItem $orientatedItem, float $x, float $y, float $z): self
     {
         return new self(
             $orientatedItem->getItem(),

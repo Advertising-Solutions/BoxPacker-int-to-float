@@ -21,22 +21,22 @@ interface Item
     /**
      * Item width in mm.
      */
-    public function getWidth(): int;
+    public function getWidth(): float;
 
     /**
      * Item length in mm.
      */
-    public function getLength(): int;
+    public function getLength(): float;
 
     /**
      * Item depth in mm.
      */
-    public function getDepth(): int;
+    public function getDepth(): float;
 
     /**
      * Item weight in g.
      */
-    public function getWeight(): int;
+    public function getWeight(): float;
 
     /**
      * Possible item rotations allowed.

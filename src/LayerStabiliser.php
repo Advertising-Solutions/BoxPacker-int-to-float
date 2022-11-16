@@ -45,7 +45,7 @@ class LayerStabiliser
         return $stabilisedLayers;
     }
 
-    private function compare(PackedLayer $layerA, PackedLayer $layerB): int
+    private function compare(PackedLayer $layerA, PackedLayer $layerB): float
     {
         return ($layerB->getFootprint() <=> $layerA->getFootprint()) ?: ($layerB->getDepth() <=> $layerA->getDepth());
     }

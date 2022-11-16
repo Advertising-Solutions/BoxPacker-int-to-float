@@ -10,7 +10,7 @@ namespace DVDoug\BoxPacker;
 
 class DefaultBoxSorter implements BoxSorter
 {
-    public function compare(Box $boxA, Box $boxB): int
+    public function compare(Box $boxA, Box $boxB): float
     {
         $boxAVolume = $boxA->getInnerWidth() * $boxA->getInnerLength() * $boxA->getInnerDepth();
         $boxBVolume = $boxB->getInnerWidth() * $boxB->getInnerLength() * $boxB->getInnerDepth();

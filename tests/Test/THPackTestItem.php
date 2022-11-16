@@ -21,22 +21,22 @@ class THPackTestItem implements ConstrainedPlacementItem
     private $description;
 
     /**
-     * @var int
+     * @var float
      */
     private $width;
 
     /**
-     * @var int
+     * @var float
      */
     private $length;
 
     /**
-     * @var int
+     * @var float
      */
     private $depth;
 
     /**
-     * @var int
+     * @var float
      */
     private $weight;
 
@@ -60,11 +60,11 @@ class THPackTestItem implements ConstrainedPlacementItem
      */
     public function __construct(
         string $description,
-        int $width,
+        float $width,
         bool $widthAllowedVertical,
-        int $length,
+        float $length,
         bool $lengthAllowedVertical,
-        int $depth,
+        float $depth,
         bool $depthAllowedVertical
     ) {
         $this->description = $description;
@@ -81,22 +81,22 @@ class THPackTestItem implements ConstrainedPlacementItem
         return $this->description;
     }
 
-    public function getWidth(): int
+    public function getWidth(): float
     {
         return $this->width;
     }
 
-    public function getLength(): int
+    public function getLength(): float
     {
         return $this->length;
     }
 
-    public function getDepth(): int
+    public function getDepth(): float
     {
         return $this->depth;
     }
 
-    public function getWeight(): int
+    public function getWeight(): float
     {
         return 0;
     }
@@ -111,12 +111,12 @@ class THPackTestItem implements ConstrainedPlacementItem
      */
     public function canBePacked(
         PackedBox $packedBox,
-        int $proposedX,
-        int $proposedY,
-        int $proposedZ,
-        int $width,
-        int $length,
-        int $depth
+        float $proposedX,
+        float $proposedY,
+        float $proposedZ,
+        float $width,
+        float $length,
+        float $depth
     ): bool {
         $ok = false;
         if ($depth === $this->width) {

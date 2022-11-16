@@ -28,8 +28,8 @@ class EfficiencyTest extends TestCase
     public function testCanPackRepresentativeLargerSamples(
         array $boxes,
         array $items,
-        int $expectedBoxes2D,
-        int $expectedBoxes3D,
+        float $expectedBoxes2D,
+        float $expectedBoxes3D,
         float $expectedWeightVariance2D,
         float $expectedWeightVariance3D,
         float $expectedVolumeUtilisation2D,
@@ -56,7 +56,7 @@ class EfficiencyTest extends TestCase
                     $item['weight'],
                     Rotation::KeepFlat
                 ),
-                (int) $item['qty']
+                (float) $item['qty']
             );
 
             $packer3D->addItem(
@@ -68,7 +68,7 @@ class EfficiencyTest extends TestCase
                     $item['weight'],
                     Rotation::BestFit
                 ),
-                (int) $item['qty']
+                (float) $item['qty']
             );
         }
         $packedBoxes2D = $packer2D->pack();
@@ -111,14 +111,14 @@ class EfficiencyTest extends TestCase
         while ($data = fgetcsv($boxData)) {
             $boxes[] = new TestBox(
                 $data[0],
-                (int) $data[1],
-                (int) $data[2],
-                (int) $data[3],
-                (int) $data[4],
-                (int) $data[5],
-                (int) $data[6],
-                (int) $data[7],
-                (int) $data[8]
+                (float) $data[1],
+                (float) $data[2],
+                (float) $data[3],
+                (float) $data[4],
+                (float) $data[5],
+                (float) $data[6],
+                (float) $data[7],
+                (float) $data[8]
             );
         }
         fclose($boxData);
@@ -128,28 +128,28 @@ class EfficiencyTest extends TestCase
         while ($data = fgetcsv($itemData)) {
             if (isset($tests[$data[0]])) {
                 $tests[$data[0]]['items'][] = [
-                    'qty' => (int) $data[1],
+                    'qty' => (float) $data[1],
                     'name' => $data[2],
-                    'width' => (int) $data[3],
-                    'length' => (int) $data[4],
-                    'depth' => (int) $data[5],
-                    'weight' => (int) $data[6],
+                    'width' => (float) $data[3],
+                    'length' => (float) $data[4],
+                    'depth' => (float) $data[5],
+                    'weight' => (float) $data[6],
                 ];
             } else {
                 $tests[$data[0]] = [
                     'boxes' => $boxes,
                     'items' => [
                         [
-                            'qty' => (int) $data[1],
+                            'qty' => (float) $data[1],
                             'name' => $data[2],
-                            'width' => (int) $data[3],
-                            'length' => (int) $data[4],
-                            'depth' => (int) $data[5],
-                            'weight' => (int) $data[6],
+                            'width' => (float) $data[3],
+                            'length' => (float) $data[4],
+                            'depth' => (float) $data[5],
+                            'weight' => (float) $data[6],
                         ],
                     ],
-                    'expected2D' => (int) $expected['2D'][$data[0]]['boxes'],
-                    'expected3D' => (int) $expected['3D'][$data[0]]['boxes'],
+                    'expected2D' => (float) $expected['2D'][$data[0]]['boxes'],
+                    'expected3D' => (float) $expected['3D'][$data[0]]['boxes'],
                     'weightVariance2D' => (float) $expected['2D'][$data[0]]['weightVariance'],
                     'weightVariance3D' => (float) $expected['3D'][$data[0]]['weightVariance'],
                     'volumeUtilisation2D' => (float) $expected['2D'][$data[0]]['utilisation'],

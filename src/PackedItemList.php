@@ -27,7 +27,7 @@ class PackedItemList implements Countable, IteratorAggregate
      */
     private array $list = [];
 
-    private int $weight = 0;
+    private float $weight = 0;
 
     private bool $isSorted = false;
 
@@ -53,7 +53,7 @@ class PackedItemList implements Countable, IteratorAggregate
     /**
      * Number of items in list.
      */
-    public function count(): int
+    public function count(): float
     {
         return count($this->list);
     }
@@ -73,7 +73,7 @@ class PackedItemList implements Countable, IteratorAggregate
     /**
      * Get total volume of these items.
      */
-    public function getVolume(): int
+    public function getVolume(): float
     {
         $volume = 0;
 
@@ -87,12 +87,12 @@ class PackedItemList implements Countable, IteratorAggregate
     /**
      * Get total weight of these items.
      */
-    public function getWeight(): int
+    public function getWeight(): float
     {
         return $this->weight;
     }
 
-    private function compare(PackedItem $itemA, PackedItem $itemB): int
+    private function compare(PackedItem $itemA, PackedItem $itemB): float
     {
         $itemAVolume = $itemA->getItem()->getWidth() * $itemA->getItem()->getLength() * $itemA->getItem()->getDepth();
         $itemBVolume = $itemB->getItem()->getWidth() * $itemB->getItem()->getLength() * $itemB->getItem()->getDepth();

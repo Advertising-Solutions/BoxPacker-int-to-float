@@ -42,7 +42,7 @@ First, create your own implementation of the ``ItemSorter`` interface implementi
         /**
          * Return -1 if $itemA is preferred, 1 if $itemB is preferred or 0 if neither is preferred.
          */
-        public function compare(Item $itemA, Item $itemB): int
+        public function compare(Item $itemA, Item $itemB): float
         {
             // your logic to determine ordering goes here. Remember, that Item is your own object,
             // and you have full access to all methods on it, not just the ones from the Item interface
@@ -103,7 +103,7 @@ First, create your own implementation of the ``BoxSorter`` interface implementin
         /**
          * Return -1 if $boxA is "best", 1 if $boxB is "best" or 0 if neither is "best".
          */
-        public function compare(Box $boxA, Box $boxB): int
+        public function compare(Box $boxA, Box $boxB): float
         {
             // your logic to determine ordering goes here. Remember, that Box is your own object,
             // and you have full access to all methods on it, not just the ones from the Box interface
@@ -142,7 +142,7 @@ First, create your own implementation of the ``PackedBoxSorter`` interface imple
         /**
          * Return -1 if $boxA is "best", 1 if $boxB is "best" or 0 if neither is "best".
          */
-        public function compare(PackedBox $boxA, PackedBox $boxB): int
+        public function compare(PackedBox $boxA, PackedBox $boxB): float
         {
             // your logic to determine "best" goes here
         }

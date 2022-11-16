@@ -61,7 +61,7 @@ class ItemList implements Countable, IteratorAggregate
         return $list;
     }
 
-    public function insert(Item $item, int $qty = 1): void
+    public function insert(Item $item, float $qty = 1): void
     {
         for ($i = 0; $i < $qty; ++$i) {
             $this->list[] = $item;
@@ -143,7 +143,7 @@ class ItemList implements Countable, IteratorAggregate
     /**
      * @internal
      */
-    public function topN(int $n): self
+    public function topN(float $n): self
     {
         if (!$this->isSorted) {
             usort($this->list, [$this->sorter, 'compare']);
@@ -175,7 +175,7 @@ class ItemList implements Countable, IteratorAggregate
     /**
      * Number of items in list.
      */
-    public function count(): int
+    public function count(): float
     {
         return count($this->list);
     }

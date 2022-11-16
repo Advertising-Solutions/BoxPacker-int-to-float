@@ -176,6 +176,6 @@ class PackerContext implements Context
      */
     public function castStringToNumber($string)
     {
-        return (int) $string;
+        return (float) $string;
     }
 }

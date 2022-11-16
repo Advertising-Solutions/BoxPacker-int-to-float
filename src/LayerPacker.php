@@ -65,7 +65,7 @@ class LayerPacker implements LoggerAwareInterface
     /**
      * Pack items into an individual vertical layer.
      */
-    public function packLayer(ItemList &$items, PackedItemList $packedItemList, int $startX, int $startY, int $startZ, int $widthForLayer, int $lengthForLayer, int $depthForLayer, int $guidelineLayerDepth, bool $considerStability): PackedLayer
+    public function packLayer(ItemList &$items, PackedItemList $packedItemList, float $startX, float $startY, float $startZ, float $widthForLayer, float $lengthForLayer, float $depthForLayer, float $guidelineLayerDepth, bool $considerStability): PackedLayer
     {
         $layer = new PackedLayer();
         $x = $startX;

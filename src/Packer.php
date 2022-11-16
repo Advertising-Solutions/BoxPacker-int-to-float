@@ -29,14 +29,14 @@ class Packer implements LoggerAwareInterface
 {
     private LoggerInterface $logger;
 
-    protected int $maxBoxesToBalanceWeight = 12;
+    protected float $maxBoxesToBalanceWeight = 12;
 
     protected ItemList $items;
 
     protected BoxList $boxes;
 
     /**
-     * @var WeakMap<Box, int>
+     * @var WeakMap<Box, float>
      */
     protected WeakMap $boxQuantitiesAvailable;
 
@@ -64,7 +64,7 @@ class Packer implements LoggerAwareInterface
     /**
      * Add item to be packed.
      */
-    public function addItem(Item $item, int $qty = 1): void
+    public function addItem(Item $item, float $qty = 1): void
     {
         $this->items->insert($item, $qty);
         $this->logger->log(LogLevel::INFO, "added {$qty} x {$item->getDescription()}", ['item' => $item]);
@@ -110,7 +110,7 @@ class Packer implements LoggerAwareInterface
     /**
      * Set the quantity of this box type available.
      */
-    public function setBoxQuantity(Box $box, int $qty): void
+    public function setBoxQuantity(Box $box, float $qty): void
     {
         $this->boxQuantitiesAvailable[$box] = $qty;
     }
@@ -118,7 +118,7 @@ class Packer implements LoggerAwareInterface
     /**
      * Number of boxes at which balancing weight is deemed not worth the extra computation time.
      */
-    public function getMaxBoxesToBalanceWeight(): int
+    public function getMaxBoxesToBalanceWeight(): float
     {
         return $this->maxBoxesToBalanceWeight;
     }
@@ -126,7 +126,7 @@ class Packer implements LoggerAwareInterface
     /**
      * Number of boxes at which balancing weight is deemed not worth the extra computation time.
      */
-    public function setMaxBoxesToBalanceWeight(int $maxBoxesToBalanceWeight): void
+    public function setMaxBoxesToBalanceWeight(float $maxBoxesToBalanceWeight): void
     {
         $this->maxBoxesToBalanceWeight = $maxBoxesToBalanceWeight;
     }

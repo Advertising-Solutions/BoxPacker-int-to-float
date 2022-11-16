@@ -34,14 +34,14 @@ class WeightRedistributor implements LoggerAwareInterface
     private BoxList $boxes;
 
     /**
-     * @var WeakMap<Box, int>
+     * @var WeakMap<Box, float>
      */
     private WeakMap $boxQuantitiesAvailable;
 
     private PackedBoxSorter $packedBoxSorter;
 
     /**
-     * @param WeakMap<Box, int> $boxQuantitiesAvailable
+     * @param WeakMap<Box, float> $boxQuantitiesAvailable
      */
     public function __construct(BoxList $boxList, PackedBoxSorter $packedBoxSorter, WeakMap $boxQuantitiesAvailable)
     {
@@ -196,7 +196,7 @@ class WeightRedistributor implements LoggerAwareInterface
         return $newVariance < $oldVariance;
     }
 
-    private static function calculateVariance(int $boxAWeight, int $boxBWeight): float
+    private static function calculateVariance(float $boxAWeight, float $boxBWeight): float
     {
         return ($boxAWeight - (($boxAWeight + $boxBWeight) / 2)) ** 2; // don't need to calculate B and ÷ 2, for a 2-item population the difference from mean is the same for each box
     }

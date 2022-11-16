@@ -24,22 +24,22 @@ Example - only allow 2 batteries per box
              * Max 2 batteries per box.
              *
              * @param  PackedBox      $packedBox
-             * @param  int            $proposedX
-             * @param  int            $proposedY
-             * @param  int            $proposedZ
-             * @param  int            $width
-             * @param  int            $length
-             * @param  int            $depth
+             * @param  float            $proposedX
+             * @param  float            $proposedY
+             * @param  float            $proposedZ
+             * @param  float            $width
+             * @param  float            $length
+             * @param  float            $depth
              * @return bool
              */
             public function canBePacked(
                 PackedBox $packedBox,
-                int $proposedX,
-                int $proposedY,
-                int $proposedZ,
-                int $width,
-                int $length,
-                int $depth
+                float $proposedX,
+                float $proposedY,
+                float $proposedZ,
+                float $width,
+                float $length,
+                float $depth
             ): bool {
                 $batteriesPacked = 0;
                 foreach ($packedBox->getItems() as $packedItem) {
@@ -72,22 +72,22 @@ Example - don't allow batteries to be stacked
              * Batteries cannot be stacked on top of each other.
              *
              * @param  PackedBox      $packedBox
-             * @param  int            $proposedX
-             * @param  int            $proposedY
-             * @param  int            $proposedZ
-             * @param  int            $width
-             * @param  int            $length
-             * @param  int            $depth
+             * @param  float            $proposedX
+             * @param  float            $proposedY
+             * @param  float            $proposedZ
+             * @param  float            $width
+             * @param  float            $length
+             * @param  float            $depth
              * @return bool
              */
             public function canBePacked(
                 PackedBox $packedBox,
-                int $proposedX,
-                int $proposedY,
-                int $proposedZ,
-                int $width,
-                int $length,
-                int $depth
+                float $proposedX,
+                float $proposedY,
+                float $proposedZ,
+                float $width,
+                float $length,
+                float $depth
             ): bool {
                 $alreadyPackedType = array_filter(
                     iterator_to_array($packedBox->getItems(), false),

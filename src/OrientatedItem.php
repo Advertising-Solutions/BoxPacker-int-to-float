@@ -21,13 +21,13 @@ class OrientatedItem implements JsonSerializable
 {
     protected Item $item;
 
-    protected int $width;
+    protected float $width;
 
-    protected int $length;
+    protected float $length;
 
-    protected int $depth;
+    protected float $depth;
 
-    protected int $surfaceFootprint;
+    protected float $surfaceFootprint;
 
     /**
      * @var array<string, bool>
@@ -35,11 +35,11 @@ class OrientatedItem implements JsonSerializable
     protected static array $stabilityCache = [];
 
     /**
-     * @var int[]
+     * @var float[]
      */
     protected array $dimensionsAsArray;
 
-    public function __construct(Item $item, int $width, int $length, int $depth)
+    public function __construct(Item $item, float $width, float $length, float $depth)
     {
         $this->item = $item;
         $this->width = $width;
@@ -62,7 +62,7 @@ class OrientatedItem implements JsonSerializable
     /**
      * Item width in mm in it's packed orientation.
      */
-    public function getWidth(): int
+    public function getWidth(): float
     {
         return $this->width;
     }
@@ -70,7 +70,7 @@ class OrientatedItem implements JsonSerializable
     /**
      * Item length in mm in it's packed orientation.
      */
-    public function getLength(): int
+    public function getLength(): float
     {
         return $this->length;
     }
@@ -78,7 +78,7 @@ class OrientatedItem implements JsonSerializable
     /**
      * Item depth in mm in it's packed orientation.
      */
-    public function getDepth(): int
+    public function getDepth(): float
     {
         return $this->depth;
     }
@@ -86,7 +86,7 @@ class OrientatedItem implements JsonSerializable
     /**
      * Calculate the surface footprint of the current orientation.
      */
-    public function getSurfaceFootprint(): int
+    public function getSurfaceFootprint(): float
     {
         return $this->surfaceFootprint;
     }

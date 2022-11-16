@@ -16,5 +16,5 @@ interface LimitedSupplyBox extends Box
     /**
      * Quantity of boxes available.
      */
-    public function getQuantityAvailable(): int;
+    public function getQuantityAvailable(): float;
 }

@@ -19,11 +19,11 @@ interface ConstrainedPlacementItem extends Item
      */
     public function canBePacked(
         PackedBox $packedBox,
-        int $proposedX,
-        int $proposedY,
-        int $proposedZ,
-        int $width,
-        int $length,
-        int $depth
+        float $proposedX,
+        float $proposedY,
+        float $proposedZ,
+        float $width,
+        float $length,
+        float $depth
     ): bool;
 }
